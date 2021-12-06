@@ -7,7 +7,6 @@ part 'booking_state.dart';
 
 class BookingCubit extends Cubit<BookingState> {
   BookingCubit(
-      BookingState state,
         this.obj_repository
       ) : super(BookingInitial());
 
@@ -25,7 +24,7 @@ class BookingCubit extends Cubit<BookingState> {
       card2 = bookingdata!.card2!;
       card3 = bookingdata!.card3!;
 
-      emit(BookingSuccesfull());
+      emit(BookingSuccesfull(card1,card2,card3));
     } catch (e) {
       emit(BookingFail());
     }

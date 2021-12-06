@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:projeto/homepage.dart';
@@ -102,7 +100,7 @@ class _loginpageState extends State<loginpage> {
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()));
+                    MaterialPageRoute(builder: (context) => MyHomepage()));
               },
               child: Container(
                 margin: EdgeInsets.only(top: 30, left: 10),
