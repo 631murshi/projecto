@@ -4,71 +4,16 @@ import 'package:projeto/modelclass.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyHomepage extends StatefulWidget {
+  const MyHomepage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomepageState createState() => _MyHomepageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  Card1? card1;
-  Card2? card2;
-  Card3? card3;
-
-  BookingSpot? obj_booking;
-  Future? obj_future;
-
-  Future<BookingSpot> apicalling() async
-  {
-    var newurl= Uri.parse(
-        "https://run.mocky.io/v3/c8f28ee5-a4fd-4b6a-ac6f-43ae176be349");
-    var res= await http.get(newurl);
-    if(res.statusCode==200)
-    {
-      var data=json.decode(res.body);
-      obj_booking=BookingSpot.fromJson(data);
-      card1=obj_booking!.card1;
-      card2=obj_booking!.card2;
-      card3=obj_booking!.card3;
-
-    }
-    return obj_booking!;
-  }
-
+class _MyHomepageState extends State<MyHomepage> {
   @override
-  void initState() {
-    obj_future=apicalling();
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-        body: FutureBuilder(
-            future: obj_future,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return homewidget(
-                  card1, card2,card3
-                );
-              }
-              else {
-                return LinearProgressIndicator();
-              }
-            }
-        )
-    );
-  }
-
-  Widget homewidget(
-  Card1? card1,
-  Card2? card2,
-  Card3? card3
-      )
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
           child: Container(
