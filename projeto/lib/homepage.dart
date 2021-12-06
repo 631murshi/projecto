@@ -52,7 +52,9 @@ class _MyHomepageState extends State<MyHomepage> {
                       if (state is BookingLoading) {
                         return Container(
                           child: Center(
-                            child: Text("Loding"),
+                            child: Text("Loding.......",style: TextStyle(
+                              fontSize: 20,color: Colors.blue
+                            ),),
                           ),
                         );
                       }
@@ -673,7 +675,9 @@ class _MyHomepageState extends State<MyHomepage> {
                       else if (state is BookingFail) {
                         return Container(
                           child: Center(
-                            child: Text("Booking Not Completed"),
+                            child: Text("Booking Not Completed",style: TextStyle(
+                            fontSize: 20,color: Colors.black
+                            ),),
                           ),
                         );
                       } else {

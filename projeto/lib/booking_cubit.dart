@@ -16,7 +16,7 @@ class BookingCubit extends Cubit<BookingState> {
   Card1? card1;
   Card2? card2;
   Card3? card3;
-  Future<void> api_calls() async {
+  Future<BookingSpot>api_calls() async {
     emit(BookingLoading());
     try {
       bookingdata = await obj_repository.booking();
@@ -25,8 +25,10 @@ class BookingCubit extends Cubit<BookingState> {
       card3 = bookingdata!.card3!;
 
       emit(BookingSuccesfull(card1,card2,card3));
-    } catch (e) {
+    } catch (e)
+    {
       emit(BookingFail());
     }
+    return bookingdata!;
   }
 }

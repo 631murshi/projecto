@@ -16,7 +16,7 @@ class bookingRepo extends Repository{
     var webUrl = Uri.parse(
         "https://run.mocky.io/v3/c8f28ee5-a4fd-4b6a-ac6f-43ae176be349");
     var res = await http.get(webUrl);
-    if (res.statusCode == 0) {
+    if (res.statusCode == 200) {
       var data = json.decode(res.body);
       obj_bookingmode = BookingSpot.fromJson(data);
     }
